@@ -86,6 +86,9 @@ return true;
                   <input type="checkbox" id="terms_agree" required="required" checked="">
                   <label for="terms_agree">I Agree with <a href="#">Terms and Conditions</a></label>
                 </div>
+
+           
+
                 <div class="form-group">
                   <input type="submit" value="Sign Up" name="signup" id="submit" class="btn btn-block">
                 </div>

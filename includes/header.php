@@ -57,7 +57,7 @@ echo "Welcome To Car rental portal";
             <li class="dropdown"> <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i> 
 <?php 
 $email=$_SESSION['login'];
-$sql ="SELECT FullName FROM tblusers WHERE EmailId=:email ";
+$sql ="SELECT * FROM tblusers WHERE EmailId=:email ";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':email', $email, PDO::PARAM_STR);
 $query-> execute();
@@ -74,7 +74,31 @@ foreach($results as $result)
             <li><a href="profile.php">Profile Settings</a></li>
               <li><a href="update-password.php">Update Password</a></li>
             <li><a href="my-booking.php">My Booking</a></li>
-            <li><a href="applytenant.php">Apply tennant</a></li>
+            <?php
+            $istenant=$result->istenant;  
+            if(!empty($istenant) && $istenant!=1)
+            {
+              ?>
+              <li><a href="applytenant.php">Apply tennant</a></li>
+
+              <?php
+            }
+            elseif($istenant == 0)
+            {
+              ?>
+              <li><a href="applytenant.php">Tenant pplication status</a></li>
+
+              <?php
+            }
+            elseif($istenant == 1)
+            {
+              ?>
+              <li><a href="postcar.php">Post Cars</a></li>
+
+              <?php
+            }
+            ?>
+            
             <li><a href="post-testimonial.php">Post a Testimonial</a></li>
           <li><a href="my-testimonials.php">My Testimonial</a></li>
             <li><a href="logout.php">Sign Out</a></li>
