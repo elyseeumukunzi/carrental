@@ -109,18 +109,12 @@ if (strlen($_SESSION['login']) == 0) {
                     <div class="col-md-3 col-sm-3">
                         <?php include('includes/sidebar.php'); ?>
                         <div class="col-md-8 col-sm-8">
+                       <a href="admin/new-bookings.php?from=tenant&id=<?php echo $id; ?>"> <button class="btn" style="background:skyblue">Bookings</button></a>
+                       <a href="admin/post-avehical.php?from=tenant&id=<?php echo $id; ?>"> <button class="btn">Manage my-vehicles</button></a>
 
-                            <?php
-                          
-                            if ($result->istenant == 0 && $result->istenant != '') {
-                                echo "Waiting for confirmation";
-                            } else {
 
-                                ?>
-                               
-                            <?php
-                            }
-                            ?>
+
+                           
                         </div>
                     </div>
                 </div>

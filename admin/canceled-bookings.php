@@ -61,10 +61,22 @@ else{
 </head>
 
 <body>
-	<?php include('includes/header.php');?>
+<?php
+		@$from = $_GET['from'];
+		if ($from == 'tenant') {
 
-	<div class="ts-main-content">
-		<?php include('includes/leftbar.php');?>
+		} else {
+			include('includes/header.php');
+		} ?>
+		<div class="ts-main-content">
+			<?php
+			@$from = $_GET['from'];
+			if ($from == 'tenant') {
+
+			} else {
+				include('includes/leftbar.php');
+			}
+			?>
 		<div class="content-wrapper">
 			<div class="container-fluid">
 
@@ -72,6 +84,21 @@ else{
 					<div class="col-md-12">
 
 						<h2 class="page-title">Canceled Bookings</h2>
+						<?php
+							@$from = $_GET['from'];
+							if ($from == 'tenant') { ?>
+							<a href="new-bookings.php?from=tenant&id=<?php echo $_GET['id']; ?>"><button class="btn btn-primary">New</button></a>
+							<a href="confirmed-bookings.php?from=tenant&id=<?php echo $_GET['id']; ?>"><button class="btn btn-primary">Comfirmed</button></a>
+							<a href="canceled-bookings.php?from=tenant&id=<?php echo $_GET['id']; ?>"> <button class="btn btn-primary">Cancelled</button></a>
+							<a href="../postcar.php"> <button class="btn btn-info" style="float:right">Home</button></a>
+
+
+								<?php
+
+							} else {
+
+							}
+							?>
 
 						<!-- Zero Configuration Table -->
 						<div class="panel panel-default">
