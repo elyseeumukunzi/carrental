@@ -226,7 +226,7 @@ DATEDIFF(tblbooking.ToDate,tblbooking.FromDate) as totalnodays,tblvehicles.Price
 														<tr>
 															<th colspan="3" style="text-align:center">Grand Total</th>
 															<td>
-																<?php echo htmlentities($tdays * $ppdays); ?>
+																<?php echo htmlentities($total = $tdays * $ppdays); ?>
 															</td>
 														</tr>
 														<tr>
@@ -272,6 +272,23 @@ DATEDIFF(tblbooking.ToDate,tblbooking.FromDate) as totalnodays,tblvehicles.Price
 											<input name="Submit2" type="submit" class="txtbox4" value="Print"
 												onClick="return f3();" style="cursor: pointer;" />
 										</form>
+
+										<h3>Income distribution</h3>
+										<table class="table">
+											<th>Amount</th>
+											<th>Children With Disabilities</th>
+											<th>Administration Expence</th>
+											<th>Other Mission</th>
+											<tbody>
+												<tr>
+													<td><?php echo $total; ?></td>
+													<td><?php echo $percentage = $total * 10 / 100; ?></td>
+													<td><?php echo $percentage = $total * 80 / 100; ?></td>
+													<td><?php echo $percentage = $total * 10 / 100; ?></td>
+												</tr>
+											</tbody>
+
+										</table>
 
 									</div>
 								</div>

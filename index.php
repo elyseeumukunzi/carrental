@@ -1,6 +1,6 @@
-<?php 
+<?php
 session_start();
-include('includes/config.php');
+include ('includes/config.php');
 error_reporting(0);
 
 ?>
@@ -38,7 +38,7 @@ error_reporting(0);
 <!-- /Switcher -->  
         
 <!--Header-->
-<?php include('includes/header.php');?>
+<?php include ('includes/header.php'); ?>
 <!-- /Header --> 
 
 <!-- Banners -->
@@ -64,7 +64,7 @@ error_reporting(0);
   <div class="container">
     <div class="section-header text-center">
       <h2>Find the Best <span>CarForYou</span></h2>
-      <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+      <p>Welcome to Wheels of Mercy Rentals – your dedicated partner for car hire in Rwanda. Born from a passion for exploring this beautiful country, our mission is to provide hassle-free, dependable, and safe transportation solutions for every traveler and resident. We understand Rwanda's roads and its unique charm, ensuring you get the right vehicle for your needs.</p>
     </div>
     <div class="row"> 
       
@@ -78,40 +78,120 @@ error_reporting(0);
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="resentnewcar">
 
-<?php $sql = "SELECT tblvehicles.VehiclesTitle,tblbrands.BrandName,tblvehicles.PricePerDay,tblvehicles.FuelType,tblvehicles.ModelYear,tblvehicles.id,tblvehicles.SeatingCapacity,tblvehicles.VehiclesOverview,tblvehicles.Vimage1 from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand limit 9";
-$query = $dbh -> prepare($sql);
+<?php
+$sql = 'SELECT tblvehicles.VehiclesTitle,tblbrands.BrandName,tblvehicles.PricePerDay,tblvehicles.FuelType,tblvehicles.ModelYear,tblvehicles.id,tblvehicles.SeatingCapacity,tblvehicles.VehiclesOverview,tblvehicles.Vimage1 from tblvehicles join tblbrands on tblbrands.id=tblvehicles.VehiclesBrand limit 9';
+$query = $dbh->prepare($sql);
 $query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{  
-?>  
+$results = $query->fetchAll(PDO::FETCH_OBJ);
+$cnt = 1;
+if ($query->rowCount() > 0) {
+  foreach ($results as $result) {
+    ?>  
 
 <div class="col-list-3">
 <div class="recent-car-list">
-<div class="car-info-box"> <a href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1);?>" class="img-responsive" alt="image"></a>
+<div class="car-info-box"> <a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1); ?>" class="img-responsive" alt="image"></a>
 <ul>
-<li><i class="fa fa-car" aria-hidden="true"></i><?php echo htmlentities($result->FuelType);?></li>
-<li><i class="fa fa-calendar" aria-hidden="true"></i><?php echo htmlentities($result->ModelYear);?> Model</li>
-<li><i class="fa fa-user" aria-hidden="true"></i><?php echo htmlentities($result->SeatingCapacity);?> seats</li>
+<li><i class="fa fa-car" aria-hidden="true"></i><?php echo htmlentities($result->FuelType); ?></li>
+<li><i class="fa fa-calendar" aria-hidden="true"></i><?php echo htmlentities($result->ModelYear); ?> Model</li>
+<li><i class="fa fa-user" aria-hidden="true"></i><?php echo htmlentities($result->SeatingCapacity); ?> seats</li>
 </ul>
 </div>
 <div class="car-title-m">
-<h6><a href="vehical-details.php?vhid=<?php echo htmlentities($result->id);?>"> <?php echo htmlentities($result->VehiclesTitle);?></a></h6>
-<span class="price"><?php echo htmlentities($result->PricePerDay);?> RWF/Day</span> 
+<h6><a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"> <?php echo htmlentities($result->VehiclesTitle); ?></a></h6>
+<span class="price"><?php echo htmlentities($result->PricePerDay); ?> RWF/Day</span> 
 </div>
 <div class="inventory_info_m">
-<p><?php echo substr($result->VehiclesOverview,0,70);?></p>
+<p><?php echo substr($result->VehiclesOverview, 0, 70); ?></p>
 </div>
 </div>
 </div>
-<?php }}?>
+<?php }
+} ?>
        
       </div>
     </div>
   </div>
+</section>
+
+<section class="section-padding gray-bg">
+  <div class="container">
+  <!-- listing available rent options -->
+  <div class="section-header text-center">
+      <h2>Find Your Perfect Ride<span>Diverse Rentals for Every Journey</span></h2>
+      <p>Discover our most popular choices, perfect for any Rwandan itinerary </p>
+    </div>
+
+    <div class="row"> 
+      
+      <!-- Nav tabs -->
+      <div class="recent-tab">
+        <ul class="nav nav-tabs" role="tablist">
+          
+        </ul>
+      </div>
+      <!-- Recently Listed New Cars -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="resentnewcar">
+
+        <div class="col-list-3">
+<div class="recent-car-list">
+<div class="car-info-box">  <a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1); ?>" class="img-responsive" alt="image"></a>
+
+</div>
+<div class="car-title-m">
+<h6><a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"> <?php echo htmlentities('Tourist and Adventures'); ?></a></h6>
+<span class="price"><?php echo htmlentities($result->PricePerDay); ?> RWF/Day</span> 
+</div>
+<div class="inventory_info_m">
+<p>Our robust fleet of SUVs is perfectly equipped for navigating the scenic routes to Volcanoes National Park for gorilla trekking, the rolling hills of Nyungwe Forest, or the vast plains of Akagera. Experience comfort, reliability, and the freedom to explore at your own pace.</p>
+</div>
+</div>
+</div>
+
+
+<div class="col-list-3">
+<div class="recent-car-list">
+<div class="car-info-box">  <a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1); ?>" class="img-responsive" alt="image"></a>
+
+</div>
+<div class="car-title-m">
+<h6><a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"> <?php echo htmlentities('Weddings & Parties'); ?></a></h6>
+
+</div>
+<div class="inventory_info_m">
+<p>Add a touch of elegance and sophistication to your special day. Our premium and luxury vehicles are available for weddings, anniversaries, graduations, and other significant events. Arrive in style and comfort, ensuring your momentous occasion is celebrated with the grand entrance it deserves.</p>
+</div>
+</div>
+</div>
+
+<div class="col-list-3">
+<div class="recent-car-list">
+<div class="car-info-box">  <a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($result->Vimage1); ?>" class="img-responsive" alt="image"></a>
+
+</div>
+<div class="car-title-m">
+<h6><a href="vehical-details.php?vhid=<?php echo htmlentities($result->id); ?>"> <?php echo htmlentities('Families & Group Travelers'); ?></a></h6>
+<span class="price"><?php echo htmlentities($result->PricePerDay); ?> RWF/Day</span> 
+</div>
+<div class="inventory_info_m">
+<p>Our robust fleet of SUVs is perfectly equipped for navigating the scenic routes to Volcanoes National Park for gorilla trekking, the rolling hills of Nyungwe Forest, or the vast plains of Akagera. Experience comfort, reliability, and the freedom to explore at your own pace.</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
 </section>
 <!-- /Resent Cat --> 
 
@@ -167,30 +247,30 @@ foreach($results as $result)
     </div>
     <div class="row">
       <div id="testimonial-slider">
-<?php 
-$tid=1;
-$sql = "SELECT tbltestimonial.Testimonial,tblusers.FullName from tbltestimonial join tblusers on tbltestimonial.UserEmail=tblusers.EmailId where tbltestimonial.status=:tid limit 4";
-$query = $dbh -> prepare($sql);
-$query->bindParam(':tid',$tid, PDO::PARAM_STR);
+<?php
+$tid = 1;
+$sql = 'SELECT tbltestimonial.Testimonial,tblusers.FullName from tbltestimonial join tblusers on tbltestimonial.UserEmail=tblusers.EmailId where tbltestimonial.status=:tid limit 4';
+$query = $dbh->prepare($sql);
+$query->bindParam(':tid', $tid, PDO::PARAM_STR);
 $query->execute();
-$results=$query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query->rowCount() > 0)
-{
-foreach($results as $result)
-{  ?>
+$results = $query->fetchAll(PDO::FETCH_OBJ);
+$cnt = 1;
+if ($query->rowCount() > 0) {
+  foreach ($results as $result) {
+    ?>
 
 
         <div class="testimonial-m">
  
           <div class="testimonial-content">
             <div class="testimonial-heading">
-              <h5><?php echo htmlentities($result->FullName);?></h5>
-            <p><?php echo htmlentities($result->Testimonial);?></p>
+              <h5><?php echo htmlentities($result->FullName); ?></h5>
+            <p><?php echo htmlentities($result->Testimonial); ?></p>
           </div>
         </div>
         </div>
-        <?php }} ?>
+        <?php }
+} ?>
         
        
   
@@ -204,7 +284,7 @@ foreach($results as $result)
 
 
 <!--Footer -->
-<?php include('includes/footer.php');?>
+<?php include ('includes/footer.php'); ?>
 <!-- /Footer--> 
 
 <!--Back to top-->
@@ -212,16 +292,16 @@ foreach($results as $result)
 <!--/Back to top--> 
 
 <!--Login-Form -->
-<?php include('includes/login.php');?>
+<?php include ('includes/login.php'); ?>
 <!--/Login-Form --> 
 
 <!--Register-Form -->
-<?php include('includes/registration.php');?>
+<?php include ('includes/registration.php'); ?>
 
 <!--/Register-Form --> 
 
 <!--Forgot-password-Form -->
-<?php include('includes/forgotpassword.php');?>
+<?php include ('includes/forgotpassword.php'); ?>
 <!--/Forgot-password-Form --> 
 
 <!-- Scripts --> 

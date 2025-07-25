@@ -4,8 +4,9 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3 col-md-2">
-          <div class="logo"> <a href="index.php"><img src="assets/images/logo.png" alt="image"/></a> </div>
+          <div class="logo"> <a href="index.php"><img src="assets/images/wheels.png" alt="Wheels of mercy Carrental in Rwanda"/ style="width: 150px;"></a> </div>
         </div>
+        <p>Explore Rwanda with The <b>wheels of Mercy Rental</b>, We Support children with disabilities from the Income of this platform </p>
         <div class="col-sm-9 col-md-10">
           <div class="header_info">
          <?php
@@ -37,10 +38,19 @@ $contactno=$result->ContactNo;
 <?php }
 else{ 
 
-echo "Welcome To Car rental portal";
+echo "Welcome To Wheels of mercy rentals";
  } ?>
+ 
+                    <div class="info-box last">
+                      <div class="info-box-content">
+                          <p class="info-box-title">Change Language</p>
+                          <div id="google_translate_element"></div>
+                      </div>
+                    </div>
+                  
           </div>
         </div>
+        
       </div>
     </div>
   </div>

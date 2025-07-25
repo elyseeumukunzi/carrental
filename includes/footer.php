@@ -53,7 +53,7 @@ if (isset($_POST['emailsubscibe'])) {
               <button type="submit" name="emailsubscibe" class="btn btn-block">Subscribe <span class="angle_arrow"><i
                     class="fa fa-angle-right" aria-hidden="true"></i></span></button>
             </form>
-            <p class="subscribed-text">*for latest news</p>
+            <p class="subscribed-text">*for latest news and new cars</p>
           </div>
         </div>
       </div>
@@ -75,9 +75,19 @@ if (isset($_POST['emailsubscibe'])) {
           </div>
         </div>
         <div class="col-md-6 col-md-pull-6">
-          <p class="copy-right">Copyright &copy; 2023 ISHIMWE Aimme Sandra. INES Ruhengeri</p>
+          <p class="copy-right">Copyright &copy; <?php echo date('Y'); ?> W.O.M Rentals Crafted with care  <i class="fa fa-heart"></i> by Innovate Solutions Ltd</p>
         </div>
       </div>
     </div>
   </div>
 </footer>
+
+<script src="js/script.js"></script>
+  <!--google transalot page -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+    </script>
+    
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

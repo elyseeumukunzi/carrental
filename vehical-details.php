@@ -354,6 +354,15 @@ $_SESSION['brndid']=$result->bid;
               <label>To Date:</label>
               <input type="date" class="form-control" name="todate" placeholder="To Date" required>
             </div>
+
+            <div class="form-group">
+              <label>With driver Options</label>
+              <select class="form-control" name="withdriver" placeholder="To Date" required>
+              <option value="Without Driver" selected>Without Driver</option>
+              <option value="With Driver">With Driver</option>
+              </select>
+            </div>
+
             <div class="form-group">
               <textarea rows="4" class="form-control" name="message" placeholder="Message" required></textarea>
             </div>
